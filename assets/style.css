@@ -113,6 +113,7 @@ img { display: block; max-width: 100%; }
 .gallery img { border: 1px solid var(--line); }
 /* Never upscale small screenshots: show them at native size, centered on white. */
 .gallery img { width: auto; max-width: 100%; margin: 0 auto; background: #fff; }
+.gallery video { display: block; max-width: 100%; max-height: 560px; margin: 0 auto; border-radius: 12px; background: #000; }
 .gallery figure.wide img[src$=".gif"] { width: auto; max-width: 100%; margin: 0 auto; background: #fff; }
 .thumb.fit-contain, .thumb.fit-contain img { background: #fff; }
 .thumb.fit-contain img { object-fit: contain; padding: 4%; }

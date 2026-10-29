@@ -72,10 +72,15 @@ const PROJECTS = [
     slug: "compressed-air-car",
     title: "Compressed-Air-Powered Car",
     role: "Design, analysis & manufacture",
-    cover: "images/compressed-air-car/cover.png",
+    cover: "images/compressed-air-car/cad-assembly.png",
     coverFit: "contain",
     gallery: [],
     galleries: [
+      { title: "Built & tested", items: [
+        { src: "images/compressed-air-car/build-assembled.jpg", caption: "Finished car: 3D-printed transmission housing with the turned aluminum nozzle" },
+        { src: "images/compressed-air-car/build-shafts.jpg", caption: "Machined transmission and turbine shafts alongside their drawings" },
+        { src: "images/compressed-air-car/build-chassis.jpg", caption: "Laser-cut acrylic chassis, front wheels, nozzle and transmission housing during assembly", wide: true }
+      ]},
       { title: "Concept generation", columns: 3, items: [
         { src: "images/compressed-air-car/concept-jet.png", caption: "Concept: direct jet propulsion" },
         { src: "images/compressed-air-car/concept-piston.png", caption: "Concept: piston engine with a spring-loaded ball inlet valve" },
@@ -314,8 +319,7 @@ const PROJECTS = [
     title: "Formula Student Gearbox Casing",
     tag: "Ongoing",
     role: "Casing team (materials & structures)",
-    cover: "images/fs-gearbox-casing/cover-surface-model.jpg",
-    coverFit: "contain",
+    cover: "images/fs-gearbox-casing/prototype-photo.jpg",
     gallery: [],
     galleries: [
       { title: "Packaging studies", items: [
@@ -325,7 +329,12 @@ const PROJECTS = [
         { src: "images/fs-gearbox-casing/casing-profile.jpg", caption: "Casing profile around the gears, with clearance, wall and blend-radius dimensions" }
       ]},
       { title: "Early CAD", items: [
-        { src: "images/fs-gearbox-casing/casing-with-gears.png", caption: "Casing with the three gears in place", wide: true }
+        { src: "images/fs-gearbox-casing/cover-surface-model.jpg", caption: "Early surface model of the casing cover with its bolt flange" },
+        { src: "images/fs-gearbox-casing/casing-with-gears.png", caption: "Casing with the three gears in place" }
+      ]},
+      { title: "3D-printed prototype", items: [
+        { src: "images/fs-gearbox-casing/casing-print-model.jpg", caption: "Prototype CAD: casing and gears with bolt bosses around the flange", wide: true },
+        { src: "images/fs-gearbox-casing/prototype-test.mp4", caption: "Prototype test: a cordless drill drives the input shaft to spin the gear train inside the casing", wide: true }
       ]}
     ],
     placeholder: { value: "3", label: "subsystems packaged inside one casing" },

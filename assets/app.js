@@ -34,6 +34,14 @@ function linkButtons() {
   </div>`;
 }
 
+// Gallery item: MP4s play muted on loop like a GIF, with controls; everything else is an image.
+function media(g, p) {
+  if (/\.mp4$/i.test(g.src)) {
+    return `<video src="${g.src}" autoplay muted loop playsinline controls preload="metadata" aria-label="${g.caption || p.title}"></video>`;
+  }
+  return `<img src="${g.src}" alt="${g.caption || p.title}" loading="lazy">`;
+}
+
 function list(items) {
   return `<ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>`;
 }
@@ -80,7 +88,7 @@ function renderProject() {
   // Main gallery plus any extra titled groups (e.g. a 3-column grid of small plots).
   const groups = [{ title: "Gallery", items: p.gallery }, ...(p.galleries || [])].filter(g => g.items.length);
   const gallery = groups.map(gr => `<section class="reveal"><h2>${gr.title}</h2><div class="gallery ${gr.columns === 3 ? "cols-3" : ""}">
-    ${gr.items.map(g => `<figure class="${g.wide ? "wide" : ""}"><img src="${g.src}" alt="${g.caption || p.title}" loading="lazy">${g.caption ? `<figcaption>${g.caption}</figcaption>` : ""}</figure>`).join("")}
+    ${gr.items.map(g => `<figure class="${g.wide ? "wide" : ""}">${media(g, p)}${g.caption ? `<figcaption>${g.caption}</figcaption>` : ""}</figure>`).join("")}
   </div></section>`).join("");
 
   const docs = p.documents?.length ? `<section class="reveal"><h2>Drawings (PDF)</h2><div class="chips">
