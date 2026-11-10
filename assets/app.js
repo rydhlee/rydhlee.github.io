@@ -6,7 +6,7 @@ const TINTS = [
 ];
 
 function thumb(p, i) {
-  if (p.cover) return `<div class="thumb ${p.coverFit === "contain" ? "fit-contain" : ""}"><img src="${p.cover}" alt="${p.title}" loading="lazy"></div>`;
+  if (p.cover) return `<div class="thumb ${p.coverFit === "contain" ? "fit-contain" : ""}"><img src="${p.cover}" alt="${p.title}" loading="lazy"${p.coverPosition ? ` style="object-position:${p.coverPosition}"` : ""}></div>`;
   const [tint, ink] = TINTS[i % TINTS.length];
   return `<div class="thumb"><div class="ph" style="--tint:${tint};--ink:${ink}">
     <div class="ph-inner"><div class="ph-value">${p.placeholder.value}</div><div class="ph-label">${p.placeholder.label}</div></div>
@@ -50,7 +50,7 @@ function renderHome() {
   const cards = PROJECTS.map((p, i) => `
     <a class="card reveal" href="project.html?p=${p.slug}">
       ${thumb(p, i)}
-      <div class="card-meta"><h3>${p.title}</h3>${p.tag ? `<span>${p.tag}</span>` : ""}</div>
+      <div class="card-meta"><h3>${p.title}</h3>${p.dates ? `<span>${p.dates}</span>` : ""}</div>
     </a>`).join("");
 
   return `
@@ -75,7 +75,7 @@ function renderProject() {
   const p = PROJECTS[i];
   document.title = `${p.title} · ${PROFILE.name}`;
 
-  const meta = [["Role", p.role]]
+  const meta = [["Role", p.role], ["Dates", p.dates]]
     .filter(([, v]) => v)
     .map(([k, v]) => `<div><span>${k}</span><strong>${v}</strong></div>`).join("");
 
